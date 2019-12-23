@@ -1,6 +1,6 @@
 package com.maxwell.SpringDemo.security.jwt;
 
-import com.maxwell.SpringDemo.security.services.UserPrinciple;
+import com.maxwell.SpringDemo.model.User;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,17 +18,17 @@ public class JwtProvider {
     @Value("${token.private.key}")
     private String jwtSecret;
 
-    @Value("${token.expiration}")
+    @Value("${token.expiration.in.milliseconds}")
     private int jwtExpiration;
 
     public String generateJwtToken(Authentication authentication) {
 
-        UserPrinciple userPrincipal = (UserPrinciple) authentication.getPrincipal();
+        User user = (User) authentication.getPrincipal();
 
         return Jwts.builder()
-		                .setSubject((userPrincipal.getUsername()))
+		                .setSubject((user.getUsername()))
 		                .setIssuedAt(new Date())
-		                .setExpiration(new Date((new Date()).getTime() + jwtExpiration*1000))
+		                .setExpiration(new Date((new Date()).getTime() + jwtExpiration))
 		                .signWith(SignatureAlgorithm.HS512, jwtSecret)
 		                .compact();
     }

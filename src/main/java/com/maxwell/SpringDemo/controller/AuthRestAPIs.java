@@ -1,12 +1,12 @@
 package com.maxwell.SpringDemo.controller;
 
-import com.maxwell.SpringDemo.model.LoginData;
 import com.maxwell.SpringDemo.model.Role;
 import com.maxwell.SpringDemo.model.RoleName;
 import com.maxwell.SpringDemo.model.User;
 import com.maxwell.SpringDemo.repository.RoleRepository;
 import com.maxwell.SpringDemo.repository.UserRepository;
 import com.maxwell.SpringDemo.security.jwt.JwtProvider;
+import com.maxwell.SpringDemo.util.LoginData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

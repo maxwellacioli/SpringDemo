@@ -1,4 +1,4 @@
-package com.maxwell.SpringDemo.model;
+package com.maxwell.SpringDemo.util;
 
 import lombok.Getter;
 import lombok.Setter;
